@@ -1,0 +1,26 @@
+version: "3"
+services:
+  web:
+    build: docker/web
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - sqlsrv
+  sqlsrv:
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>
+  schemaspy:
+    image: schemaspy/schemaspy:snapshot
+    volumes:
+      - ./schemaspy/output:/output
+      - ./schemaspy/drivers:/drivers
+      - ./schemaspy/schemaspy.properties:/schemaspy.properties
+      - ./schemaspy/schema-meta.xml:/schema-meta.xml
+    depends_on:
+      - sqlsrv
