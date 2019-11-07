@@ -9,14 +9,14 @@ services:
     depends_on:
       - sqlsrv
   sqlsrv:
-    image: microsoft/mssql-server-linux:2017-latest
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
     ports:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>
   schemaspy:
-    image: schemaspy/schemaspy:snapshot
+    image: schemaspy/schemaspy:latest
     volumes:
       - ./schemaspy/output:/output
       - ./schemaspy/drivers:/drivers

@@ -1,5 +1,11 @@
 # laravel-schemaspy-sample
 
+## Build
+
+```
+$ docker-compose up -d --build web sqlsrv
+```
+
 ## Database Migrations
 
 ### Create Database
@@ -21,7 +27,7 @@ $ docker-compose exec web php artisan migrate
 Build and Run schemaspy container for executing Schemaspy
 
 ```
-$ docker-compose run schemaspy
+$ docker-compose run --rm schemaspy
 ```
 
 Open `schemaspy/output/index.html` in Web Broeser view.

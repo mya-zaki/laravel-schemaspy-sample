@@ -9,5 +9,40 @@
                 <foreignKey table="users" column="id"/>
             </column>
         </table>
+
+        <table name="comments">
+            <column name="post_id">
+                <foreignKey table="posts" column="id"/>
+            </column>
+            <column name="foreign_key">
+                <foreignKey table="posts" column="other_key"/>
+            </column>
+        </table>
+        <table name="password_resets">
+            <column name="email">
+                <foreignKey table="users" column="email"/>
+            </column>
+        </table>
+        <table name="permission_role">
+            <column name="r_id">
+                <foreignKey table="roles" column="id"/>
+            </column>
+            <column name="p_id">
+                <foreignKey table="permissions" column="id"/>
+            </column>
+        </table>
+        <table name="my_phones">
+            <column name="user_id">
+                <foreignKey table="users" column="id"/>
+            </column>
+        </table>
+        <table name="role_user">
+            <column name="user_id">
+                <foreignKey table="users" column="id"/>
+            </column>
+            <column name="role_id">
+                <foreignKey table="roles" column="id"/>
+            </column>
+        </table>
     </tables>
 </schemaMeta>
