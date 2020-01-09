@@ -41,3 +41,7 @@ $ docker-compose exec web php artisan schemaspy-meta:generate App\\Models --excl
 ```
 
 Run schemaspy container again after generating xml.
+
+## Dependencies
+
+https://github.com/mya-zaki/laravel-schemaspy-meta
